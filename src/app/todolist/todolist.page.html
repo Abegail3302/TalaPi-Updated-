@@ -1,0 +1,63 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon name="arrow-back-outline" class="ion-padding" routerLink="/home" slot="start"></ion-icon>
+    <ion-title style="text-align: center;">
+      Talapi
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="isOpen === false" color="primary" (click)="isOpen = true"><ion-icon name="add-circle"></ion-icon></ion-button>
+      <ion-button *ngIf="isOpen === true" color="danger" (click)="isOpen = false"><ion-icon name="close-circle"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <h1 id="tdl">to-do list</h1>
+</ion-header>
+
+<ion-buttons id="another">
+  <ion-buttons color="primary" routerLink="/home"><ion-icon name="cash-outline" id="cash"></ion-icon></ion-buttons>
+  <ion-buttons  color="danger" routerLink="/todolist" ><ion-icon name="document-outline" id="list"></ion-icon></ion-buttons>
+  <ion-buttons  color="danger" (click)="presentAlert()"><ion-icon name="calculator" id="calcu"></ion-icon></ion-buttons>
+</ion-buttons>
+
+<ion-content class="ion-padding">
+      <!--<ion-list-header class="tdl">
+        <h1 style="color:pink;">to-do list</h1>
+    </ion-list-header>-->
+
+    <!--<ion-buttons id="another">
+      <ion-buttons color="primary" routerLink="/home"><ion-icon name="cash-outline" id="cash"></ion-icon></ion-buttons>
+      <ion-buttons  color="danger" routerLink="/todolist" ><ion-icon name="document-outline" id="list"></ion-icon></ion-buttons>
+      <ion-buttons  color="danger" (click)="presentAlert()"><ion-icon name="calculator" id="calcu"></ion-icon></ion-buttons>
+    </ion-buttons>-->
+
+  <div class="empty" *ngIf="tasks.length === 0" style="color:#d94f73;">
+   <!--<small>Welcome!</small>-->
+    <img src="https://clipartstation.com/wp-content/uploads/2018/10/take-note-clipart-5.png" class="logo"/>
+    <!--<img src="/assets/notes.png">-->
+  </div>
+  <ion-list *ngIf="tasks.length > 0 ">
+   
+    <ion-card class="tasks" *ngFor="let task of tasks; let i = index">
+      <ion-checkbox color="danger" [checked]="task.isChecked" (ionChange)="onCheck($event, i)"></ion-checkbox>
+      <h4 *ngIf="!task.isChecked" class="task-title">{{task.content}} </h4>
+      <h4 *ngIf="task.isChecked" class="task-title" style="color: #f9423a; text-decoration: line-through;">{{task.content}} </h4>
+    
+      <ion-button fill="clear" color="danger" style="float:right;" (click)="deleteTask(i)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-card>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="isOpen">
+  <ion-item>
+    <ion-input [(ngModel)]="newTask" placeholder="Add a New Task"></ion-input>
+    <ion-button shape="round" (click)="addNewTask()" color="primary" [disabled]="newTask === ''">
+      Add<ion-icon name="add-circle"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-footer>
+

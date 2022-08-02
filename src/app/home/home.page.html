@@ -1,0 +1,214 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    
+    <ion-icon name="add-outline" slot="end" routerLink="/add-edit-data/add" id="add"></ion-icon>
+    <ion-icon name="home-outline" class="ion-padding" routerLink="/landing" id="home" slot="start"></ion-icon>
+    <ion-title id="title">
+      Talapi
+    </ion-title>
+    </ion-toolbar>
+    </ion-header>
+
+
+<ion-content>
+
+  <div class="main-div ion-padding">
+    <h1 class="ion-padding" id="mt">moneythor</h1>
+
+    <ion-buttons>
+      <ion-buttons color="primary" routerLink="/home"><ion-icon name="cash-outline" id="cash"></ion-icon></ion-buttons>
+      <ion-buttons  color="danger" routerLink="/todolist" ><ion-icon name="document-outline" id="list"></ion-icon></ion-buttons>
+      <ion-buttons  color="danger" id="open-modal" expand="block"><ion-icon name="calculator" id="calcu"></ion-icon></ion-buttons>
+    </ion-buttons>
+    
+  
+    <div class="list">
+      <ion-list>
+        <ion-item-sliding *ngFor="let transaction of moneyTransactions">
+          <ion-item>
+            <ion-label>
+              {{transaction.title}}
+              <p [ngClass]="{expense: transaction.type == 'expense',income: transaction.type == 'income'}">{{transaction.subTitle}}</p>
+            </ion-label>
+              <p class="amount" [ngClass]="{expense: transaction.type == 'expense',income: transaction.type == 'income'}">₱{{transaction.amount}}</p>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="danger">
+              <ion-icon name="trash-outline" (click)="delete_transaction(transaction.id)"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="dark">
+              <ion-icon name="create-outline" routerLink="/add-edit-data/{{transaction.id}}"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+
+        <!--<ion-item-sliding>
+          <ion-item>
+            <ion-label>
+              Gym Membership
+              <p class="expense">Gym</p>
+            </ion-label>
+              <p class="amount">₱15</p>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="danger">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="dark">
+            <ion-icon name="create-outline" routerLink="/add-edit-data/edit"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        </ion-item-sliding>
+
+        <ion-item-sliding>
+          <ion-item>
+            <ion-label>
+              Monthly Salary
+              <p class="income">Job</p>
+            </ion-label>
+              <p class="amount">₱15</p>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="danger">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="dark">
+            <ion-icon name="create-outline" routerLink="/add-edit-data/edit"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        </ion-item-sliding>
+
+        <ion-item-sliding>
+          <ion-item>
+            <ion-label>
+              Bonus Salary
+              <p class="income">Job</p>
+            </ion-label>
+              <p class="amount">₱15</p>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option color="danger">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="dark">
+            <ion-icon name="create-outline" routerLink="/add-edit-data/edit"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        </ion-item-sliding> -->
+
+      </ion-list>
+    </div>
+
+  
+      
+    
+
+    <!--Calculator-->
+    <ion-modal
+    trigger="open-modal"
+    [initialBreakpoint]="0.25"
+    [breakpoints]="[0, 0.25, 0.5, 0.75]"
+    handleBehavior="cycle"
+  >
+   <ng-template>
+      <ion-content color="light" class="ion-padding">
+        <ion-input class="answer" type="number" [(ngModel)]="display"></ion-input>
+        <ion-grid>
+          <!--First Row-->
+          <ion-row >
+            <ion-col>
+              <ion-button class="number" (click)="click('7')">7</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="number" (click)="click('8')">8</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="number" (click)="click('9')">9</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="operator" (click)="click('X')">x</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <!--Second Row-->
+          <ion-row>
+            <ion-col>
+              <ion-button class="number" (click)="click('4')">4</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="number" (click)="click('5')">5</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="number" (click)="click('6')">6</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="operator" (click)="click('-')">-</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <!--Third Row-->
+          <ion-row>
+            <ion-col>
+              <ion-button class="number" (click)="click('1')">1</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="number" (click)="click('2')">2</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="number" (click)="click('3')">3</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="operator" (click)="click('+')">+</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <!--Last Row-->
+          <ion-row>
+            <ion-col>
+              <ion-button class="number" (click)="click('0')">0</ion-button>
+            </ion-col>
+
+            
+            <ion-col>
+              <ion-button class="number" (click)="click('.')">.</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="number" (click)="click('%')">%</ion-button>
+            </ion-col>
+            
+            <ion-col>
+              <ion-button class="operator" (click)="click('/')">/</ion-button>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-button class="del" *ngIf="!isc" (click)="click('ac')">AC</ion-button>
+              <ion-button class="del" *ngIf="isc" (click)="click('C')">C</ion-button>
+            </ion-col>
+
+            <ion-col col-75>
+              <ion-button class="equals" (click)="click('=')">=</ion-button>
+            </ion-col>
+          </ion-row>
+          </ion-grid>
+
+        </ion-content>
+    </ng-template>
+  </ion-modal>
+</div>
+</ion-content>

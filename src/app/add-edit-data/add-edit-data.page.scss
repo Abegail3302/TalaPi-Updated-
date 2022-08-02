@@ -1,0 +1,45 @@
+ion-content{
+    --ion-background-color:black;
+}
+
+ion-icon:focus{
+    outline: none;
+}
+
+.main-section {
+    h3 {
+        padding-bottom: 0;
+        font-family: 'Poppins', sans-serif;
+        color: #d94f73;
+        font-weight: bold;
+    }
+    .form {
+        border: 1px solid  #fefdff;
+        border-radius: 7px;
+
+        ion-select {
+            border: 1px solid #d94f73;
+            border-radius: 17px;
+            font-family: 'Poppins', sans-serif;
+            color:  #fefdff;
+        }
+
+        ion-input{
+            border: 1px solid #d94f73;
+            margin: 20px 0;
+            border-radius: 17px;
+            --padding-start: 23px;
+            font-family: 'Poppins', sans-serif;
+            color:  #fefdff;
+        }
+
+        ion-button{
+            width: 100%;
+            --border-radius: 17px;
+            font-family: 'Poppins', sans-serif;
+            --background:#d94f73;
+            --color: #ffff;
+        }
+
+    }
+}

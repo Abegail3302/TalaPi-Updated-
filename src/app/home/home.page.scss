@@ -1,0 +1,198 @@
+ion-content{
+  
+  //--ion-background-color:rgb(222, 213, 213);
+  --ion-background-color: black;
+  //
+  font-family: 'Poppins', sans-serif;
+}
+
+.main-div {
+  h1{
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .list {
+    margin-top: 1%;
+    ion-item:part(native) {
+      padding: 0;
+    }
+
+    ion-item {
+      margin-top: 10px;
+      color: #fefdff;
+      --border-color: #fefdff;
+      font-family: 'Poppins', sans-serif;
+      
+      ion-label{
+        font-size: 16px;
+        //font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+
+        p{
+          font-size: 12px;
+          font-weight: bold;
+          font-family: 'Poppins', sans-serif;
+        }
+      }
+
+      p.expense{
+        color:#f9423a;
+        font-weight: bold;
+      }
+      p.income{
+        color:#ffae42;
+        font-weight: bold;
+      }
+      p.amount{
+        font-weight: 700;
+      }
+    }
+
+    ion-item-sliding:last-child {
+    margin-bottom: 10px;
+  }
+
+  ion-item-sliding.item-sliding-active-option-end ion-item {
+    padding-right: 10px;
+  }
+
+  ion-item-option{
+    border-radius:40px;
+    height: 38px;
+    width: 38px;
+    margin-top: 30px;
+    margin-trim: 4px;
+  }
+  }
+
+  ion-button{
+    position: fixed;
+    top:20%;
+    right:20px;
+  }
+ 
+  .counter__section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  }
+
+  .number {
+    --background: black;
+   color: #d94f73;
+    width: 100%;
+    font-size: 18px;
+   padding: 2%;
+   font-family: 'Poppins', sans-serif;
+   --background-hover: #605E5F;
+ }
+
+  .equals {
+    --background: #d94f73;
+    color: black;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  ion-modal {
+    --width: 100%;
+    --background-color: #EED6D3;
+    align-items: center;
+    //text-align: center;
+    //justify-content: center;
+  }
+
+  ion-grid {
+    --ion-grid-column-padding:0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  //.summonCalc {
+    //--background: #E8B4B8;
+    //--color: #67595E;
+   //width: 100%;
+    //font-size: 18px;
+    //text-transform: uppercase;
+    //font-weight: bold;
+  //}
+
+  .del {
+    width: 100%;
+    --background: black;
+    color: #d94f73;
+  }
+
+  .answer {
+    text-align: right;
+  }
+
+  #addtask{
+    float:right;
+  }
+
+  #cash{
+    font-size: 25px;
+    color:#d94f73;
+    margin-left: 105px;
+  }
+
+  #click{
+    float:right;
+  }
+
+  #list{
+  color:#605E5F;
+  background: none;
+  font-size: 25px;
+
+  }
+
+  #add{
+    font-size: 25px;
+   
+  }
+
+  #calcu{
+    font-size: 25px;
+    color:#605E5F;
+  }
+
+.ion-padding {
+  padding:0;
+}
+
+ion-buttons {
+  padding-top: 1%;
+}
+
+ion-title{
+  font-family: 'Poppins', sans-serif;
+  
+}
+
+ion-modal.stack-modal {
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  --backdrop-opacity: var(--ion-backdrop-opacity, 0.32);
+}
+#title {
+  text-align: center;
+}
+#home{
+  font-size: 25px;
+}
+
+#mt{
+  text-align: center;
+  color: #d94f73;
+}
+.operator {
+  --background: #E8B4B8;
+    --color: black;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    font-size: 18px;
+   padding: 2%;
+}

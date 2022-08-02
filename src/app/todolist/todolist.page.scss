@@ -1,0 +1,95 @@
+ion-content{
+    font-family: 'Poppins', sans-serif;
+    padding:0;
+    margin-top: 0;
+}
+p{
+
+    float: left;
+
+}
+.tasks{
+    padding:5px;
+    background-color: #ffffff;
+}
+.task-title{
+    margin:0;
+    padding:0;
+    display:inline-block;
+    margin-left: 14px;
+    font-weight: bold;
+    font-size: 15px;
+    color:black;
+}
+.task-date {
+    margin:0;
+    padding:0;
+    float: right;
+    font-weight: bold;
+    font-size: 11px;
+    color:black;
+    margin-top: 28px;
+}
+.empty{
+   
+   text-align: center;  
+}
+ion-toolbar{
+    font-family: 'Poppins', sans-serif;
+}
+ion-button{
+    font-family: 'Poppins', sans-serif;
+}
+ion-item{
+    font-family: 'Poppins', sans-serif;
+    
+}
+ion-input{
+    font-family: 'Poppins', sans-serif;
+}
+#cash{
+    font-size: 25px;
+    margin-left: 105px;
+    color:#605E5F;
+    }
+#list{
+    background: none;
+    font-size: 25px;
+    color:#d94f73;
+    }
+#calcu{
+    font-size: 25px;
+    color:#605E5F;
+    }
+    #add{
+      font-size: 25px;
+      margin-left: 290px;
+    }
+  
+  ion-buttons {
+    padding-top: 1%;
+  }
+ion-content{
+  --ion-background-color:black;
+  font-family: 'Poppins', sans-serif;
+  
+}
+ion-card{
+  font-family: 'Poppins', sans-serif;
+}
+#tdl{
+  text-align: center;
+  color: #d94f73;
+}
+h1{
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding:0;
+}
+.logo {
+  width: 50%;
+  margin: 40% 0 20% 0;
+}
+img {
+  opacity: 0.5;
+}
