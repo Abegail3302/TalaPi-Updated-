@@ -1,0 +1,7 @@
+{
+  "name": "moneythor-firebase",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
